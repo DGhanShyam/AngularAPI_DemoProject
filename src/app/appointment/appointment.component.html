@@ -1,0 +1,27 @@
+
+<div class="p-fluid p-formgrid p-grid">
+  <div class="main">
+  <h3>Candidate Appointment Form</h3>
+  <div class="p-field p-col-12 p-md-6">
+      <label for="firstname">Full Name</label>
+      <input  [formControl]="firstname" id="firstname" type="text" pInputText>
+  </div> <br>
+  <div class="p-field p-col-12 p-md-6 p-lg-4">
+      <label for="mail">Email</label>
+      <input [formControl]="mail"id="mail" type="text" pInputText>
+  </div> <br>
+  <div class="p-field p-col-12">
+      <label for="detail"> Appiontment Regarding </label>
+      <textarea [formControl]="detail" id="detail" type="text" rows="4" pInputTextarea></textarea>
+  </div> <br>
+  <div class="p-field p-col-12 p-md-6">
+      <label for="contact"> Contact Number </label>
+      <input [formControl]="contact" id="contact" type="text" pInputText>
+  </div> <br>
+  <div class="p-field p-col-12 p-md-3">
+      <label for="feild">Field Applied</label>
+      <p-dropdown [formControl]="feild" inputId="feild" [options]="feild" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
+  </div>
+    <button (click)="updateName()">Update Name</button>
+  </div>
+</div>

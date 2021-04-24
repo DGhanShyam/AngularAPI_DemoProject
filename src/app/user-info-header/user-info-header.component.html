@@ -1,0 +1,33 @@
+<!-- <div *ngFor="let todo of userData; let i = index;" class="todo {{ (todo.completed ? 'done' : '') }}">
+  <div class="id">{{ i }}</div>
+  <div class="id">{{ todo.name }}</div>
+  </div> -->
+
+
+<div class="header"  *ngFor="let todo of userData;">
+  <div class="photo">
+    <img alt="Card" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wRtvON_8JKRQghdROw5QvQHaHa%26pid%3DApi&f=1" width="90"
+    height="90" >
+    <p>Name: {{ userName }}</p>
+    <p>Mail:{{ todo.mail }} </p>
+    <p>Contact: {{ todo.phone }}</p>
+    <p>Experience yrs: {{ todo.expYrs }}</p>
+  </div>
+
+  <div class="data">
+    <p>College:  {{ todo.college }}</p>
+    <p>Previous Company:  {{ to-do.preCompany }}</p>
+    <p>Applied Feild:  {{ todo.feild }}</p>
+    <p>Hobby: {{ todo.hobby }} </p>
+    <p>Education Completed: {{ todo.educatnCompl }} </p>
+    <p>Highest Qualification:  {{ todo.expYrs }}</p>
+    <p>Looking for fulltime:  {{ todo.expYrs }}</p>
+  </div>
+  <div class="data-1">
+    <p>Level of experties :  {{ todo.expYrs }}</p>
+    <p>Hours willing to Work : {{ todo.expYrs }} </p>
+    <p>Stipend Expectation :  {{ todo.expYrs }}</p>
+    <p> Appointment Scheduled :  {{ todo.appointment }}</p>
+  </div>
+
+</div>
