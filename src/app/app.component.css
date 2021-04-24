@@ -1,0 +1,123 @@
+*{
+  font-size: 13px;
+  /* background-color: #0b75da; */
+}
+.top-head{
+  width:100%;
+  border:2px #506d7f dotted;
+  height:4rem;
+   background-color: #506d7f;
+}
+.top-head h4{
+  margin-left: 2.5rem;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  /* max-width: 400px; */
+  justify-content: center;
+}
+.cards{
+  padding-left: 30px;
+}
+
+p-button{
+  /* align-items: center;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle; */
+
+}
+
+#appoint-render{
+    max-width: 500px;
+    /* max-height: 500px; */
+    margin: 60px auto;
+}
+
+
+.appointForm{
+  border: 2px white double;
+  margin: 0 300px;
+  padding: 20px;
+}
+
+
+/* ------user info header */
+.photo{
+  /* padding: 40px 40px; */
+  margin: 10px;
+  /* max-width:100px; */
+  /* border:2px solid black; */
+  flex:1;
+}
+.photo img{
+  background-attachment: fixed;
+  background-size:cover;
+  /* max-height: 100%; */
+  /* margin: 0 auto; */
+  /* flex:4; */
+  /* border: 2px white dotted; */
+}
+.data-0{
+  /* margin: 10px; */
+  /* border:2px solid black; */
+
+  width:10rem;
+  flex:4;
+}
+.data{
+  margin: 10px;
+  /* border:2px solid black; */
+  flex:3;
+}
+.data-1{
+  margin: 10px;
+  /* border:2px solid black; */
+  flex:7;
+}
+
+.header_detail_area{
+  margin: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  /* max-width: 400px; */
+  justify-content:flex-start;
+  border:2px solid white;
+  border-radius: 6px;
+}
+/*
+.form_one{
+  width:10rem;
+  flex:4;
+  border:2px solid black;
+}
+.form_two{
+  margin: 10px;
+  border:2px solid black;
+  flex:3;
+}
+.form_three{
+  margin: 10px;
+  border:2px solid black;
+  flex:3;
+} */
+.user_profile_form{
+  margin: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  /* max-width: 400px; */
+  justify-content:flex-start;
+  /* border:2px solid white; */
+  border-radius: 6px;
+}
+
+.success{
+  display:inline;
+}
+.appointmentForm{
+  background-color: #506d7f;
+}
+.danger{
+  display:none;
+}

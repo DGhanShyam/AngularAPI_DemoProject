@@ -1,0 +1,283 @@
+<div class="top-head">
+  <h4>DataKonnect - Personal Details</h4>
+</div>
+
+<br>
+<a routerLink="user">about</a><br>
+
+<router-outlet></router-outlet>
+
+
+<br>
+<ul>
+  <li *ngFor="let item of smartphone; let i = index">
+     {{item.title}}
+  </li>
+</ul>
+<br>
+
+    <!-- header part -->
+  <div class="header_detail_area" >
+    <div class="photo">
+      <img alt="Card" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wRtvON_8JKRQghdROw5QvQHaHa%26pid%3DApi&f=1" width="90"
+      height="90" >
+      <div class="data-0">
+      <p>Name : {{ newName }}</p>
+      <p>Mail : {{ newMail }} </p>
+      <p>Phone : {{ newPhone }}</p>
+      <p>Age : {{ newAge }}</p>
+      <p>Experience : {{ newExperience }} Yrs.</p>
+      <p>Address : {{ newAddress }}</p>
+    </div>
+    </div>
+
+    <div class="data">
+      <p>College :  {{ newCollege }}</p>
+      <p>Previous Company :  {{ newPreComp }}</p>
+      <p>Applied Feild :  {{ newFeild }}</p>
+      <p>Hobby : {{ newHobby }} </p>
+      <p>Education Completed : {{newEduComp }} </p>
+      <p>Highest Qualification :  {{ newHighStudy }}</p>
+      <p>Looking for fulltime :  {{ newFulltime }}</p>
+    </div>
+    <div class="data-1">
+      <p>Level of experties :  {{ newLevelExpert }} /10</p>
+      <p>Hours willing to Work : {{ newHoursWork == "" ? ' &#8259;&#8259;&#8259; ' : newHoursWork }}
+         {{ newHoursWork  == "" ? '' : ' Hrs' }}  </p>
+
+      <p>Stipend Expectation :  {{ newStipendExpt  == "" ? ' &#8259;&#8259;&#8259; ' : newStipendExpt }}
+        {{ newStipendExpt  == "" ? '' : '/- INR' }}  </p>
+      <p> Appointment Scheduled :  {{ newAppoint == "" ? 'No' : 'Yes' }}</p>
+    </div>
+
+  </div>
+
+    <!-- end header part -->
+
+        <!--  card part -->
+<div class="flex-container">
+
+  <div class="p-col-12 p-md-6 p-lg-3 cards">
+    <p-card [style]="{width: '240px'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="/assets/img/skill.jpg" style="height:127px;">
+        </ng-template>
+        <p>Skill test show's your skills to the recruiter it'll increase your chance to get selected for internship, own words will be appreciated.
+
+        </p>
+        <ng-template class="foot" pTemplate="footer " >
+            <p-button label="Take Skill Test" icon="pi pi-check"></p-button>
+            <!-- <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}""></p-button> -->
+        </ng-template>
+    </p-card>   </div>
+
+    <div class="p-col-12 p-md-6 p-lg-3 cards">
+      <p-card [style]="{width: '240px'}" styleClass="p-card-shadow">
+          <ng-template pTemplate="header" class="head">
+              <img alt="Card" src="/assets/img/app.jpg">
+          </ng-template>
+          <p>Schedule an appointment by filling the form and we'll get back to you as soon as possible to help you out will your
+            issue.
+          </p>
+          <ng-template calss pTemplate="footer ">
+              <p-button (click)=takeAppointment() label=" Take Appointment " icon="pi pi-check"></p-button>
+              <!-- <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}""></p-button> -->
+          </ng-template>
+      </p-card>
+    </div>
+
+      <div class="p-col-12 p-md-6 p-lg-3 cards">
+        <p-card [style]="{width: '240px'}" styleClass="p-card-shadow">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="/assets/img/de.jfif" style="height:127px;">
+            </ng-template>
+            <p>You can update your profile below by filling the form details and update any mistakes you found in above personal detail
+              section
+            </p>
+            <ng-template pTemplate="footer " >
+                <p-button (click)=takeProfile() label="Update Profile" icon="pi pi-check"></p-button>
+                <!-- <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}""></p-button> -->
+            </ng-template>
+        </p-card>   </div>
+
+        <div class="p-col-12 p-md-6 p-lg-3 cards">
+          <p-card [style]="{width: '240px'}" styleClass="p-card-shadow">
+              <ng-template pTemplate="header">
+                  <img alt="Card" src="/assets/img/d.png">
+              </ng-template>
+              <p>Candidates details can be found here for recruitor to analize and feedback will be updated above based
+                skill test and personal details.
+              </p>
+              <ng-template pTemplate="footer ">
+                  <p-button   label="View Info." icon="pi pi-check"></p-button>
+                  <!-- <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}""></p-button> -->
+              </ng-template>
+          </p-card>   </div>
+</div>
+    <!-- end card part -->
+
+
+    <!-- appointment form   -->
+<div class="appointmentForm" [ngClass]="displayAppoint ? 'success' : 'danger'">
+<div class="p-fluid p-formgrid p-grid appointForm">
+
+  <h3>Candidate Appointment Form</h3>
+  <div class="p-field p-col-12 p-md-6">
+      <label for="firstname">Full Name</label>
+      <input disabled [formControl]="name" id="firstname" type="text" pInputText>
+  </div> <br>
+  <div class="p-field p-col-12 p-md-6 p-lg-4">
+      <label for="mail">Email</label>
+      <input disabled [formControl]="mail"id="mail" type="text" pInputText>
+  </div> <br>
+  <div class="p-field p-col-12">
+      <label for="detail"> Appiontment Regarding </label>
+      <textarea [formControl]="detail" id="detail" type="text" rows="4" pInputTextarea></textarea>
+  </div> <br>
+  <div class="p-field p-col-12 p-md-6">
+      <label for="contact"> Contact Number </label>
+      <input [formControl]="phone" id="contact" type="text" pInputText>
+  </div> <br>
+  <div class="p-field p-col-12 p-md-3">
+    <label for="state">Applied Feild</label>
+    <p-dropdown
+      inputId="state"
+      [options]="states"
+      [(ngModel)]="selectedState"
+      placeholder="Select"
+      optionLabel="name"
+    ></p-dropdown>
+  </div>
+    <!-- <button (click)="updateName()">Update Name</button> -->
+    <p-button  (click)="updateName()" label="Submit" styleClass="p-button-secondary" [style]="{'margin-top': '.6em'}"></p-button>
+        </div>
+</div>
+    <!-- end appointment form   -->
+
+
+
+<!-- ------------------ -->
+  <!-- update form   -->
+  <div class="user_profile_form"  [ngClass]="displayProfile ? 'success' : 'danger'">
+    <h3>Candidate Appointment Form</h3>
+
+    <div class="flex-container" >
+
+      <div class=" p-jc-start p-col-12 p-md-6 p-lg-3 cards">
+        <div class="p-field p-col-12 p-md-6">
+            <label for="firstname">Full Name</label><br>
+            <input  [formControl]="name1" id="firstname" type="text" pInputText>
+        </div> <br>
+        <div class="p-field p-col-12 p-md-6 p-lg-4">
+            <label for="mail">Email</label><br>
+            <input [formControl]="mail1"id="mail" type="text" pInputText>
+        </div> <br>
+      </div>
+
+
+      <div class="p-col-12 p-md-6 p-lg-3 cards">
+        <div class="p-field p-col-12 p-md-6">
+            <label for="firstname">Full Name</label> <br>
+            <input  [formControl]="name2" id="firstname" type="text" pInputText>
+        </div> <br>
+        <div class="p-field p-col-12 p-md-6 p-lg-4">
+            <label for="mail">Email</label> <br>
+            <input [formControl]="mail2"id="mail" type="text" pInputText>
+        </div> <br>
+      </div>
+
+      <div class="p-col-12 p-md-6 p-lg-3 cards">
+        <div class="p-field p-col-12 p-md-6">
+            <label for="firstname">Full Name</label> <br>
+            <input  [formControl]="name" id="firstname" type="text" pInputText>
+        </div> <br>
+        <div class="p-field p-col-12 p-md-6 p-lg-4">
+            <label for="mail">Email</label> <br>
+            <input [formControl]="mail"id="mail" type="text" pInputText>
+        </div> <br>
+      </div>
+
+      <div class="p-col-12 p-md-6 p-lg-3 cards">
+        <div class="p-field p-col-12 p-md-6">
+            <label for="firstname">Full Name</label> <br>
+            <input  [formControl]="name" id="firstname" type="text" pInputText>
+        </div> <br>
+        <div class="p-field p-col-12 p-md-6 p-lg-4">
+            <label for="mail">Email</label> <br>
+            <input [formControl]="mail"id="mail" type="text" pInputText>
+        </div> <br>
+      </div>
+    </div>
+    <p-button (click)="updateUserForm()" label="Submit" styleClass="p-button-secondary" [style]="{'margin': '.6em .6em 0 31em'}"></p-button>
+   </div>
+        <!-- end update form   (click)="updateProf()" -->
+<!-- ------------------ -->
+
+<!-- ------------------ -->
+<!-- ------------------ -->
+
+<!--
+<div id="appoint-render" *ngIf="displayAppoint">
+  <app-appointment ></app-appointment>   </div>
+
+  <div id="comp-render" *ngIf="displayProfile">
+    <app-user-profile></app-user-profile>   </div>
+
+  <div id="comp-render" *ngIf="displaySkill">
+  <app-skill-test></app-skill-test>  </div> -->
+
+  <!-- <select [(ngModel)]="userType">
+    <option value="staff">Staff</option>
+    <option value="student">Student</option>
+  </select> -->
+
+  <!-- <div class="parent-component" [ngSwitch]="userType">
+    <app-staff *ngSwitchCase="userType==='staff'"></app-staff>
+    <app-student *ngSwitchCase="userType==='student'"></app-student>
+  </div> -->
+
+
+
+ <!--
+<br>
+<div class="app">
+  <header><h1>TODO List</h1></header>
+  <app-todos></app-todos>           other component
+</div>
+<br><br><br><br>-->
+<!-- ----------- -->
+<br> <!-- FOrm Group Reactive-->
+<!-- <h4>reactive form</h4>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+<br> -->
+--------------------- <br>
+ <!-- FOrm template -->
+<!-- <h4>template form</h4>
+<label>
+  Name: <input type="text" [formControl]="name"> <br>
+  Phone: <input type="text" [formControl]="phone">
+</label>
+<br>
+<p>
+  Value: {{ name.value }}
+</p><p>
+  Value: {{ phone.value }}
+</p>
+
+<br>
+<p>
+  <button (click)="updateName()">Update Name</button>
+</p> -->
+
+
